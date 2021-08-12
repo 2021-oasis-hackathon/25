@@ -1,5 +1,7 @@
 <template>
-  
+    <div>
+        PlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlanPlan
+    </div>
 </template>
 
 <script>

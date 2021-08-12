@@ -1,5 +1,7 @@
 <template>
-  
+    <div>
+        FoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFoodFood
+    </div>
 </template>
 
 <script>
