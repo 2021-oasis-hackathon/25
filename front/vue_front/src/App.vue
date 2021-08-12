@@ -1,11 +1,21 @@
 <template>
   <div id="nav">
+    <Bottom/>
+    aa
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </div>
   <router-view/>
+  </div>
 </template>
-
+<script>
+import Bottom from "./components/layout/BottomBar.vue"
+export default {
+  name : "App", 
+  components : {
+    Bottom, 
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
