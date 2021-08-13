@@ -1,12 +1,10 @@
 <template>
   <div>
-    <nav>
-      <TopBar class="top-bar bar"/> 
-      <BottomBar class="bottom-bar bar"/>
-    </nav>
+    <TopBar class="top-bar bar"/> 
     <div class="content">
       <router-view/>
     </div>
+    <BottomBar class="bottom-bar bar"/>
   </div>
 </template>
 <script>
@@ -18,7 +16,8 @@ export default {
   components : {
     TopBar,
     BottomBar,
-  }
+  },
+
 }
 </script>
 <style>
@@ -46,6 +45,7 @@ export default {
   width: 100%;
   position:fixed;
   align-items: stretch;
+  top:0px;
 }
 .bottom-bar{
   
@@ -55,5 +55,8 @@ export default {
 }
 .content{
   margin: 68px 0px 46px;
+}
+.bar{
+  z-index: 10000;
 }
 </style>

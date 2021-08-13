@@ -1,6 +1,8 @@
 <template>
     <div>
-        CommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunityCommunity
+        <div class="content">
+            asdasdasdasd
+        </div>
     </div> 
 </template>
 
