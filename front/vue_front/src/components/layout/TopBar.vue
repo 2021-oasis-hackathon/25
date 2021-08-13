@@ -83,7 +83,6 @@ button{
     margin-right:5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background:;
     color: black;
     font-size: 1em;
     font:icon;

@@ -1,4 +1,5 @@
-<template>
+<template> 
+  
   <div>
     <TopBar class="top-bar bar"/> 
     <div class="content">
@@ -17,6 +18,9 @@ export default {
     TopBar,
     BottomBar,
   },
+  head: {
+    title: "asdf",
+  }
 
 }
 </script>

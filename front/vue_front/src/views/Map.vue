@@ -1,6 +1,6 @@
 <template>
     <div>
-       p Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Map Ma
+           
     </div> 
 </template>
 
@@ -16,6 +16,8 @@ export default {
     },
     watch: {
 
+    },
+    mounted() {
     },
 }
 </script>
