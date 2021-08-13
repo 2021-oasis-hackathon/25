@@ -1,18 +1,23 @@
 <template>
-  <div id="nav">
-    <Bottom/>
-    aa
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  <router-view/>
+  <div>
+    <nav>
+      <TopBar class="top-bar bar"/> 
+      <BottomBar class="bottom-bar bar"/>
+    </nav>
+    <div class="content">
+      <router-view/>
+    </div>
   </div>
 </template>
 <script>
-import Bottom from "./components/layout/BottomBar.vue"
+import TopBar from "./components/layout/TopBar.vue"
+import BottomBar from "./components/layout/BottomBar.vue"
+
 export default {
   name : "App", 
   components : {
-    Bottom, 
+    TopBar,
+    BottomBar,
   }
 }
 </script>
@@ -25,10 +30,6 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
 #nav a {
   font-weight: bold;
   color: #2c3e50;
@@ -36,5 +37,23 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.main-img{
+  width: 100%;
+  z-index: -1;
+}
+.top-bar{
+  width: 100%;
+  position:fixed;
+  align-items: stretch;
+}
+.bottom-bar{
+  
+  width:100%;
+  position: fixed;
+  bottom:0px;
+}
+.content{
+  margin: 68px 0px 46px;
 }
 </style>
