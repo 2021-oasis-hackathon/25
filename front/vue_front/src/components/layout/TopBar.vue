@@ -88,4 +88,9 @@ button{
     font:icon;
     background: rgb(222, 225, 230);
 }
+.asdf{
+    position:absolute;
+    top: 30%;
+    left: 50%;
+}
 </style>
