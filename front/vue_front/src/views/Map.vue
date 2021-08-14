@@ -27,6 +27,9 @@ export default {
     mounted() {
         console.log("map페이지 moutnted");
     },
+    unmounted() {
+        console.log("map UNMOUNTED")
+    },
 }
 </script>
 

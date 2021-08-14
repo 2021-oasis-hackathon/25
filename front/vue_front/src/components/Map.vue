@@ -22,7 +22,7 @@ export default {
             if(!(window.naver)){
             const naverMap=document.createElement("script");
             naverMap.src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9ppcmu4ekd"
-            naverMap.onload = () => this.initMap();
+            naverMap.onload = () => {this.initMap(); console.log("naver_Map_onload");}
             document.head.appendChild(naverMap);
             console.log("컴포넌트 create");
         }
