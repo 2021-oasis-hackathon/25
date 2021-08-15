@@ -72,3 +72,7 @@ export default {
   z-index: 10000;
 }
 </style>
+/*
+methods:
+
+*/ 
