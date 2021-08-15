@@ -4,25 +4,30 @@
   <button @click="satellite" >위성</button>
   <button @click="hybrid" >기본+위성</button>
   <button @click="terrain" >지형</button>
-  <h1>{{user_location}}</h1>
-  <h1>{{currentPos}}</h1>
+  
+  
+  <h1>user_location : {{user_location}}</h1>
+  <h1>currentPos: {{currentPos}}</h1>
+  
 </template>
+
 
 <script>
 import {  mapState} from 'vuex'
+
+let lc = null;
 export default {
     data(){
         return {
             map: null,
             marker: null,
-            x: null, 
-            y: null,
-            user_location: null, 
+            user_location: "NONONONO", 
         }
     },
     computed: {
         ...mapState({
             currentPos : state=>state.marker.currentPos,
+            mapId : state=>state.init,
         }), 
         //...mapGetters(marker, {
         //    "setCurrentPos",
@@ -50,48 +55,49 @@ export default {
             this.map.setMapTypeId(naver.maps.MapTypeId.TERRAIN); 
         },
         onSuccessGeo(position){
-            this.x=position.coords.latitude;
-            this.y=position.coords.longitude;
-            this.user_location = new naver.maps.LatLng(this.x, this.y);
-            this.map.setCenter(this.user_location); 
+            var x=position.coords.latitude;
+            var y=position.coords.longitude;
+            var user_location = new naver.maps.LatLng(x, y);
+
+            this.$store.commit('setUserPos', user_location);
+            this.map.setCenter(this.currentPos); 
             this.map.setZoom(17);
-            console.log("bebe");
-            this.$store.commit('Pos', "this.pos123ition");
-            console.log("afafaf");
+
             this.marker=new naver.maps.Marker({
-                position: location,
+                position: this.currentPos,
                 map: this.map,
             })
         },
         onErrorGeo(){
-            console.log("FAILA")
-        }, 
+            console.log("fail Geo");
+        },
+        getCurrentGeo() {
+            navigator.geolocation.getCurrentPosition(this.onSuccessGeo, this.onErrorGeo)
+        }
     },
     created(){
             if(!(window.naver)){
             const naverMap=document.createElement("script");
-            naverMap.src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9ppcmu4ekd"
+            naverMap.src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId="+this.mapId;
             naverMap.onload = () => {this.initMap(); console.log("naver_Map_onload");}
             document.head.appendChild(naverMap);
-            console.log("컴포넌트 create");
+            console.log("asdf");
         }
     },
-
     mounted() {
         if(window.naver){
             this.initMap();
         }
         window.onload= () => {
             if(navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(this.onSuccessGeo, this.onErrorGeo)
+                this.getCurrentGeo();
             }
         }
+        lc= setInterval(this.getCurrentGeo, 5000); 
     },
     unmounted() {
-        console.log("컴포넌트 unmounted")
-        if(window.naver){
-            console.log("123123123123")
-        }
+        console.log("언 ㅁ아ㅜㄴ 티ㅡㄷ");
+        clearInterval(lc);
     },
 }
 </script>

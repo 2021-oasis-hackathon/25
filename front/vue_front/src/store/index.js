@@ -7,6 +7,9 @@ import community from './moduls/community.js';
 import marker from './moduls/marker.js';
 
 export default createStore({
+  state:{
+    init:"9ppcmu4ekd",
+  },
   modules: {
     namespaced:true,
     food,

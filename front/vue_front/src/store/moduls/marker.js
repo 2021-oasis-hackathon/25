@@ -1,19 +1,23 @@
 export default {
   state: {
-    currentPos:"123123" , 
-    a: "asdasd",
+    currentPos:null,
+    markers: [
+
+    ],
   },
   getters: {
   },
   mutations: {
-    Pos : (state, payload) =>{
+    setUserPos : (state, payload) =>{
       state.currentPos=payload; 
-      console.log(state.currentPos);
+      console.log("markers : ", state.currentPos);
+      state.markers.push(payload);
     }
   },
   actions: {
-    Pos: ({commit}, payload) =>{
-      commit('Pos', payload);   
+     
+    setUserPos: ({commit}, payload) =>{
+      commit('setUserPos', payload);   
     }
   },
   modules: {
