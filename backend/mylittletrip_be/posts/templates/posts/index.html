@@ -1,0 +1,10 @@
+{% if post %}
+    <ul>
+    {% for p in post %}
+        <li><a href="post/{{p.id}}">{{ p.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>작성 된 글이 없습니다.</p>
+{% endif %}
+<p><a href="write">글 작성</a></p>
