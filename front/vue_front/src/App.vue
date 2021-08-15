@@ -1,5 +1,4 @@
 <template> 
-  
   <div>
     <TopBar class="top-bar bar"/> 
     <div class="content">
@@ -12,17 +11,26 @@
 import TopBar from "./components/layout/TopBar.vue"
 import BottomBar from "./components/layout/BottomBar.vue"
 
+
 export default {
   name : "App", 
   components : {
     TopBar,
     BottomBar,
   },
-  head: {
-    title: "asdf",
+  computed: {
+    //...mapState ({
+
+    //}),
+  },
+
+  mounted() {
+  },
+    //...mapMutations({
+
+    //}),
   }
 
-}
 </script>
 <style>
 #app {

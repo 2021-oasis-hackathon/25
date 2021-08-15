@@ -4,18 +4,29 @@
   <button @click="satellite" >위성</button>
   <button @click="hybrid" >기본+위성</button>
   <button @click="terrain" >지형</button>
-
+  <h1>{{user_location}}</h1>
+  <h1>{{currentPos}}</h1>
 </template>
 
 <script>
+import {  mapState} from 'vuex'
 export default {
     data(){
         return {
             map: null,
+            marker: null,
+            x: null, 
+            y: null,
+            user_location: null, 
         }
     },
-    computed() {
-
+    computed: {
+        ...mapState({
+            currentPos : state=>state.marker.currentPos,
+        }), 
+        //...mapGetters(marker, {
+        //    "setCurrentPos",
+        //})
     },
     methods:{
         initMap() {
@@ -28,7 +39,7 @@ export default {
         }, 
         normal() {
             this.map.setMapTypeId(naver.maps.MapTypeId.NORMAL);
-       }, 
+        }, 
         satellite(){
             this.map.setMapTypeId(naver.maps.MapTypeId.SATELLITE);
         },
@@ -38,6 +49,23 @@ export default {
         terrain(){
             this.map.setMapTypeId(naver.maps.MapTypeId.TERRAIN); 
         },
+        onSuccessGeo(position){
+            this.x=position.coords.latitude;
+            this.y=position.coords.longitude;
+            this.user_location = new naver.maps.LatLng(this.x, this.y);
+            this.map.setCenter(this.user_location); 
+            this.map.setZoom(17);
+            console.log("bebe");
+            this.$store.commit('Pos', "this.pos123ition");
+            console.log("afafaf");
+            this.marker=new naver.maps.Marker({
+                position: location,
+                map: this.map,
+            })
+        },
+        onErrorGeo(){
+            console.log("FAILA")
+        }, 
     },
     created(){
             if(!(window.naver)){
@@ -52,9 +80,12 @@ export default {
     mounted() {
         if(window.naver){
             this.initMap();
-            console.log("intitmap");
         }
-        console.log("컴포넌트 mounted")
+        window.onload= () => {
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(this.onSuccessGeo, this.onErrorGeo)
+            }
+        }
     },
     unmounted() {
         console.log("컴포넌트 unmounted")
