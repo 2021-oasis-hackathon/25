@@ -1,23 +1,16 @@
 import { createApp } from 'vue'
-import vuetify from './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from "axios";
-
+import  WaveUI  from  'wave-ui' 
+import  'wave-ui/dist/wave-ui.css'
 const app = createApp(App)
 
-let url = "http://localhost:8000/user/"; // 장고 서버 주소
 
-axios.get(url)
-.then(function(response){
-  console.log(response);
-})
-.catch(function(response){
-  console.log(response);
-})
 app.use(router)
 app.use(store)
-app.use(vuetify)
+new  WaveUI ( app ,  { 
+  // 일부 Wave UI 옵션
+ })
 
 app.mount('#app')

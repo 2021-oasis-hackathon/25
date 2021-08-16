@@ -1,11 +1,17 @@
 <template>
-  <v-app>
-    <v-main>
+
+<w-app>
+  <!-- All your app content goes here. -->
       <TopBar class="top-bar bar"/> 
       <router-view/>
-      <BottomBar class="bottom-bar bar"/>
-    </v-main>
-  </v-app>
+      <w-divider class="my6 mx-3"></w-divider>
+      <BottomBar class="bottom-bar bar" />
+
+  <!-- Also try to add a button! -->
+
+</w-app>
+
+
 </template>
 
 <script>
@@ -56,6 +62,7 @@ export default {
   width:100%;
   position: fixed;
   bottom:0px;
+  margin-top:47px;
 }
 .content{
   margin: 68px 0px 46px;
