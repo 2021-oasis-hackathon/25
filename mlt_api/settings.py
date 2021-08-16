@@ -141,6 +141,9 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_SIGNUP_REDIRECT_URL = "index"
+LOGIN_REDIRECT_URL = 'index'
+
 # email setting
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

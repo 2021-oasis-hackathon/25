@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('userapi.urls')),
     path('', include('allauth.urls')),
+    # django는 url 매칭을 위부터 아래로 패턴 검색한다. 
 ]
