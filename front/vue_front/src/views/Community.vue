@@ -1,39 +1,13 @@
 <template>
     <div>
         <div class="content">
-            <table class="table">
-                <tr>
-                    <td>{{post}}</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
-            </table>
-            <button @click='postTest'></button>
+            <a src="">여수</a>
+            <router-link to="/community/gwangju">광주</router-link>
+            <a src="">aaa</a>
+
+            <a src="">adsf</a>
+            <a src="">asdf</a>
+            <a src="">123123</a>
         </div>
     </div> 
 </template>
@@ -60,12 +34,15 @@ export default {
         }).catch(err=>{
             console.log(err)
         })
+        },
+
+
     },
     watch: {
 
     },
-    }
 }
+
 </script>
 
 

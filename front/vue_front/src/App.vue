@@ -1,36 +1,30 @@
-<template> 
-  <div>
-    <TopBar class="top-bar bar"/> 
-    <div class="content">
+<template>
+  <v-app>
+    <v-main>
+      <TopBar class="top-bar bar"/> 
       <router-view/>
-    </div>
-    <BottomBar class="bottom-bar bar"/>
-  </div>
+      <BottomBar class="bottom-bar bar"/>
+    </v-main>
+  </v-app>
 </template>
+
 <script>
 import TopBar from "./components/layout/TopBar.vue"
 import BottomBar from "./components/layout/BottomBar.vue"
 
-
 export default {
-  name : "App", 
+
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
   components : {
     TopBar,
     BottomBar,
   },
-  computed: {
-    //...mapState ({
 
-    //}),
-  },
-
-  mounted() {
-  },
-    //...mapMutations({
-
-    //}),
-  }
-
+}
 </script>
 <style>
 #app {
@@ -40,12 +34,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 #nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
 #nav a.router-link-exact-active {
   color: #42b983;
 }
@@ -72,7 +64,3 @@ export default {
   z-index: 10000;
 }
 </style>
-/*
-methods:
-
-*/ 

@@ -13,6 +13,11 @@ const routes = [
     component: () => import('../views/Community.vue')
   },
   {
+    path: '/community/gwangju',
+    name: 'gwangju',
+    component: () => import('../views/community_rigion/gwangju.vue')
+  },
+  {
     path: '/food',
     name: 'Food',
     component: () => import('../views/Food.vue')
