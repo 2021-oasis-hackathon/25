@@ -13,7 +13,7 @@
         :headers="table.headers"
         :items="table.items"
         :filter="table.keywordFilter(table.keyword)"
-        @row-click="clickTitle">
+        @row-click="clickTitle" class="table">
     </w-table>
     <w-button class="ma1 mr6 post-btn transition-toggle" bg-color="secondary"  round @click="showCard = !showCard">작성하기</w-button>
 
@@ -50,21 +50,23 @@ export default {
                 { label: '군산, 익산', route: 'w-breadcrumbs' },
             ],
             table: {
-                headers: [
-                    { label: 'ID', key: 'id' },
+            headers: [
+                    { label: '작성자', key: 'id' },
                     { label: '제목', key: 'title' },
-                    { label: 'Last name', key: 'lastName' },
-                    { label: 'Last name', key: 'lastName' }
+                    { label: '작성일', key: 'date' },
                 ],
                 items: [
-                    { id: 1, firstName: 'Floretta', lastName: 'Sampson' },
-                    { id: 2, firstName: 'Nellie', lastName: 'Lynn' },
-                    { id: 3, firstName: 'Rory', lastName: 'Bristol' },
-                    { id: 4, firstName: 'Daley', lastName: 'Elliott' },
-                    { id: 5, firstName: 'Virgil', lastName: 'Carman' },
-                    
+                    { id: "행복이", title: '[맛집] 추천 ', date: '8/15' },
+                    { id: "여수사람", title: '[여행지] 여기 짱이ㅔ요', date: '8/14' },
+                    { id: "땡칠이", title: '오늘 닐씨 좋네요 ', date: '8/6' },
+                    { id: "행복이", title: '[맛집] 추천 ', date: '8/15' },
+                    { id: "여수사람", title: '[여행지] 여기 짱이ㅔ요', date: '8/14' },
+                    { id: "땡칠이", title: '오늘 닐씨 좋네요 ', date: '8/6' },
+                    { id: "땡순이", title: '여기 가보세요~', date: '8/3' },
+                    { id: "땡삼이", title: '오', date: '8/1' },
+                    { id: "땡순이", title: '여기 가보세요~', date: '8/3' },
+                    { id: "땡삼이", title: '오', date: '8/1' },
                 ],
-                
                 keyword: '',
                 keywordFilter: keyword => item => {
                     const allTheColumns = `${item.id} ${item.firstName} ${item.lastName}`
@@ -81,7 +83,7 @@ export default {
             axios.get( this.url+""
         ).then(
             res =>{
-                this.table=res.data
+                this.table.items=res.data
         }).catch(err=>{
             console.log(err)
         })
@@ -94,16 +96,10 @@ export default {
         axios.get( this.url+""
         ).then(
             res =>{
-                this.table=res.data
+                this.table.items=res.data
         }).catch(err=>{
             console.log(err)
         });
-    },
-    watch: {
-
-    },
-    mounted() {
-
     },
 }
 </script>
@@ -111,9 +107,6 @@ export default {
 
 
 <style scoped>
-.buttonaa{
-    margin-top: 300px; 
-}
 .aa{
     margin-top: 100px;
 }
@@ -121,7 +114,7 @@ item-cell.id{
     width: 10px;
 } 
 .mb3{
-    margin-top: 50px;
+    margin-top: 150px;
 }
 .post-btn{
     margin-top:5%;
@@ -136,5 +129,9 @@ item-cell.id{
     height: 500px;
     background: white;
 }
-
+.table{
+    height: 1000px;
+    font-size: 25px;
+    font: bold; 
+}
 </style>
