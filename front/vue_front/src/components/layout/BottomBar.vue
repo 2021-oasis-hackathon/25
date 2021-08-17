@@ -1,18 +1,32 @@
 <template>
  <div >
      <nav>
-        <w-divider color="amber" class="ma6"></w-divider>
-        <w-toolbar class="py0" bg-color="grey-light5">
-            <div class="spacer"></div>
-            <span class="mx1">Item 1</span>
-            <span class="mx1">Item 2</span>
-            <w-divider class="mx1" vertical></w-divider>
-            <span class="mx1">Item 3</span>
-            <span class="mx1">Item 4</span>
-            <w-divider class="mx1" vertical></w-divider>
-            <span class="mx1">Item 5</span>
-            <span class="mx1">Item 6</span>
-        </w-toolbar>
+        <w-divider color="amber" class="ma0"></w-divider>
+        <w-flex justify-space-between class="indigo-light5--bg pa3 bot-imgs">
+
+            <router-link to="/">
+                <img src="../../assets/bot-home.png" class="bot-img" alt="">
+            </router-link>
+            <w-divider class="mx6" vertical></w-divider>
+            <router-link to="/plan">
+                <img src="../../assets/bot-plan.png" class="bot-img">
+            </router-link>
+            <w-divider class="mx6" vertical ></w-divider>
+            <router-link to="/map">
+                <img src="../../assets/bot-map.png" class="bot-img">
+            </router-link>
+            <w-divider class="mx6" vertical></w-divider>
+            <router-link to="/community">
+                <img src="../../assets/bot-com.png" class="bot-img">
+            </router-link>
+            <w-divider class="mx6" vertical ></w-divider>
+            <router-link to="/myPage.png">
+            <img src="../../assets/bot-myPage.png" class="bot-img">
+            </router-link>
+
+
+        </w-flex>
+
     </nav>
  </div> 
 </template>
@@ -28,4 +42,18 @@ export default {
     z-index: 1994;
     background: whitesmoke;   
 }
+.bot-img{
+    height: 60px;
+    width: 60px;
+}
+.bot-imgs{
+    padding:0px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.bot{
+    height:30px ;
+    width: 30px;
+}
+
 </style>

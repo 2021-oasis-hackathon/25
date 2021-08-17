@@ -3,8 +3,7 @@
 <w-app>
   <!-- All your app content goes here. -->
       <TopBar class="top-bar bar"/> 
-      <router-view/>
-      <w-divider class="my6 mx-3"></w-divider>
+      <router-view class="one-page"/>
       <BottomBar class="bottom-bar bar" />
 
   <!-- Also try to add a button! -->
@@ -69,5 +68,9 @@ export default {
 }
 .bar{
   z-index: 10000;
+}
+.one-page{
+  margin-top:65px;
+  margin-bottom: 65px;
 }
 </style>
