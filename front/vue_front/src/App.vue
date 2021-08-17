@@ -2,7 +2,6 @@
 
 <w-app>
   <!-- All your app content goes here. -->
-      <TopBar class="top-bar bar"/> 
         <router-view class="one-page"/>
       <BottomBar class="bottom-bar bar" />
 
@@ -12,7 +11,6 @@
 </template>
 
 <script>
-import TopBar from "./components/layout/TopBar.vue"
 import BottomBar from "./components/layout/BottomBar.vue"
 
 export default {
@@ -23,7 +21,6 @@ export default {
     //
   }),
   components : {
-    TopBar,
     BottomBar,
   },
 
@@ -48,12 +45,6 @@ export default {
   width: 100%;
   z-index: -1;
 }
-.top-bar{
-  width: 100%;
-  position:fixed;
-  align-items: stretch;
-  top:0px;
-}
 .bottom-bar{
   
   width:100%;
@@ -67,7 +58,6 @@ export default {
   z-index: 10000;
 }
 .one-page{
-  margin-top:76px;
   margin-bottom: 65px;
 }
 </style>

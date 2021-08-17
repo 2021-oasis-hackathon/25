@@ -77,6 +77,11 @@ const routes = [
     name:  'plan',
     component: () => import('../views/Plan.vue')
   },
+  {
+    path:  '/myPage',
+    name:  'myPage',
+    component: () => import('../views/myPage.vue')
+  },
 ]
 
 const router = createRouter({

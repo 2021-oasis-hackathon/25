@@ -19,7 +19,7 @@
                 <img src="../../assets/bot-com.png" class="bot-img">
             </router-link>
             <w-divider class="mx6" vertical ></w-divider>
-            <router-link to="/myPage.png">
+            <router-link to="/myPage">
             <img src="../../assets/bot-myPage.png" class="bot-img">
             </router-link>
         </w-flex>
