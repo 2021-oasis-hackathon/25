@@ -1,1 +1,11 @@
-<h1>Home</h1>
+<navbar>
+    {% if user.is_authenticated %}
+    안녕하세요 {{user.nickname}}님!
+        <a href ="{% url 'account_logout'%}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'account_login'%}">로그인</a>
+        <a href="{% url 'account_signup'%}">회원가입</a>
+    {% endif %}
+
+</navbar>
+<h1>Frontend Home</h1>
