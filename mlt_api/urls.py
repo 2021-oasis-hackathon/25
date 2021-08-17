@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    # ADMIN
     path('admin/', admin.site.urls),
+    # APP
     path('', include('userapi.urls')),
+    # ALLAUTH
+    path('email-confirmation-done/',
+        TemplateView.as_view(template_name='userapi/email_confirmation_done.html'),
+        name='account_email_confirmation_done'),
     path('', include('allauth.urls')),
     # django는 url 매칭을 위부터 아래로 패턴 검색한다. 
 ]

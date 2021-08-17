@@ -25,7 +25,7 @@ SECRET_KEY = 'w9e1$s(g+&$=65n%x^svu6(edovpoq0%%t_2q7n%b#i%qusbnw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.30.1.18']
 
 
 # Application definition
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # app
     'userapi',
-    # auth
+    #widget
+    'widget_tweaks',
+    # allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -140,6 +142,10 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_FORM_CLASS = 'userapi.forms.SignupForm'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done" 
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
+#ACCOUNT_EMAIL_VARIFICATION = 'optional'
 #SESSION_COOKIE_AGE = 3600 # 초 단위 쿠키 저장 시간 지정
 
 # email setting
