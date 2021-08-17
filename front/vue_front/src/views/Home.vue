@@ -18,12 +18,34 @@
   <vueper-slide v-for="i in 9" :key="i" :title="i.toString()" />
 </vueper-slides>
 
+
+<w-divider class="my6 mx-3"></w-divider>
+
+
+<h1 class="plan"> 앞으로의 여정</h1>
+<vue-cal style="height: 250px" />
+
+
+
+<vue-cal fractions progress
+         :time-from="1 * 60"
+         :time-step="60"
+         :disable-views="['years', 'year', 'month']"
+          editable-events
+         :events="events"
+         :split-days="splitDays"
+         :sticky-split-labels="stickySplitLabels"
+         :min-cell-width="minCellWidth"
+         :min-split-width="minSplitWidth">
+</vue-cal>
   </div>
 </template>
 
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
+import VueCal from 'vue-cal'
+import 'vue-cal/dist/vuecal.css'
 
 export default {
   data: () => ({
@@ -44,12 +66,14 @@ export default {
   },
 ]
 }),
+
   name: 'Home',
   
-   components: { VueperSlides, VueperSlide },
+   components: 
+     { VueperSlides, VueperSlide ,VueCal},
 };
 </script>
-<style>
+<style scoped>
 .vueperslides__progress {
   background: rgba(0, 0, 0, 0.25);
   color: #ff5252;
@@ -61,5 +85,12 @@ export default {
 .road{
   margin-top : 50px;
   margin-bottom : 35px;
+}
+.plan{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.my6 {
+  margin-top:50px;
 }
 </style>

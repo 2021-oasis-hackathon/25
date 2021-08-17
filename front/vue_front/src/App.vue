@@ -70,7 +70,7 @@ export default {
   z-index: 10000;
 }
 .one-page{
-  margin-top:65px;
+  margin-top:76px;
   margin-bottom: 65px;
 }
 </style>

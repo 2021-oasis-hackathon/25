@@ -1,5 +1,9 @@
 <template>
     <div>
+
+
+
+        <w-breadcrumbs :items="items" separator-color="orange" />
         <h1>광주페이지</h1>
         <button @click='poserServe' class="buttonaa">test!!</button>
         <div class = "aa">
@@ -16,6 +20,10 @@ export default {
         return {
             title: "title",
             content: "content",
+            items: [
+                { label: '커뮤니티', route: '/community' },
+                { label: '정읍, 장성, 임실', route: 'w-breadcrumbs' },
+            ]
         }
     },
     methods: {
