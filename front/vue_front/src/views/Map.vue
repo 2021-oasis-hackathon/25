@@ -28,24 +28,24 @@
 
 <script>
 import {  mapState} from 'vuex'
+var mapOptions={
+    scaleControl: true,
+    logoControl: false,
+    mapDataControl: false,
+    zoomControl: true,
+    zoom: 15,
+}
 
 
 export default {
     data(){
         return {
-            mapOptions :{
-                scaleControl: true,
-                logoControl: false,
-                mapDataControl: false,
-                zoomControl: true,
-                zoom: 15,
-            },
             listItems1: [
-                { label: this.marker1.latlng, value: 1 },
-                { label: this.marker2.latlng, value: 2 },
-                { label: this.marker3.latlng, value: 3 },
-                { label: this.marker4.latlng, value: 4 },
-                { label: this.marker5.latlng, value: 4 },
+                { label: this.marker1 , value: 1 },
+                { label: this.marker2 , value: 2 },
+                { label: this.marker3 , value: 3 },
+                { label: this.marker4 , value: 4 },
+                { label: this.marker5 , value: 4 },
             ],
             map: null,
             user_marker: null,
@@ -69,7 +69,7 @@ export default {
     methods:{
         initMap() {
             const mapBox=document.getElementById("map");
-            this.map=new naver.maps.Map(mapBox,this.mapOptions);
+            this.map=new naver.maps.Map(mapBox,mapOptions);
         }, 
         normal() {
             this.map.setMapTypeId(naver.maps.MapTypeId.NORMAL);
@@ -120,20 +120,18 @@ export default {
             });
         }
     },
-    created(){
+    mounted() {
         if(window.naver){
             this.initMap(); 
             this.getCurrentGeo();
         } else if(!(window.naver)){
-            const naverMap=document.createElement("script");
+            var naverMap=document.createElement("script");
             naverMap.src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId="+this.mapId;
             document.head.appendChild(naverMap);
             console.log("asdf");
             naverMap.onload = () => {this.initMap();this.getCurrentGeo(); console.log("naver_Map_onload");}
         }
-    },
-    mounted() {
-
+        
         
     },
     unmounted() {
@@ -160,8 +158,5 @@ export default {
 }
 #map{
     margin-top : 10%;
-}
-.bot {
-    margin-bot : 10%;
 }
 </style>

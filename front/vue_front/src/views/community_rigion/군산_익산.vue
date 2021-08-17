@@ -1,10 +1,10 @@
 <template>
     <div>
         <w-breadcrumbs :items="items" separator-color="orange" />
-    
+    <img src="../../assets/익산.png" class="img2">
     <w-input
         v-model="table.keyword"
-        placeholder="Search anything..."
+        placeholder="검 색"
         inner-icon-left="wi-search"
         class="mb3">
     </w-input>
@@ -114,7 +114,7 @@ item-cell.id{
     width: 10px;
 } 
 .mb3{
-    margin-top: 150px;
+    margin-top: 80px;
 }
 .post-btn{
     margin-top:5%;
@@ -133,5 +133,11 @@ item-cell.id{
     height: 1000px;
     font-size: 25px;
     font: bold; 
+}
+.img2 {
+    display: flex;
+    width: 40%;
+    padding: 40px 0 0 34px;
+    top: 10%;
 }
 </style>
