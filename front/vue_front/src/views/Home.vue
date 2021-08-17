@@ -1,6 +1,6 @@
 <template>
   <div>
-<vueper-slides :dragging-distance="50">
+<vueper-slides :dragging-distance="50" fixed-height="500px" >
   <vueper-slide
     v-for="(slide, i) in slides"
     :key="i"
@@ -8,13 +8,13 @@
     :parallax="1"
 />
 </vueper-slides >
-
 <h1 class='road'> 추천 경로</h1>
 <vueper-slides class="recomand" fractions progress 
   :class="shadow"
   :visible-slides="3"
   :slide-ratio="1 / 3"
-  :dragging-distance="70">
+  :dragging-distance="70"
+   fixed-height="500px">
   <vueper-slide v-for="i in 9" :key="i" :title="i.toString()" />
 </vueper-slides>
 
@@ -27,17 +27,7 @@
 
 
 
-<vue-cal fractions progress
-         :time-from="1 * 60"
-         :time-step="60"
-         :disable-views="['years', 'year', 'month']"
-          editable-events
-         :events="events"
-         :split-days="splitDays"
-         :sticky-split-labels="stickySplitLabels"
-         :min-cell-width="minCellWidth"
-         :min-split-width="minSplitWidth">
-</vue-cal>
+
   </div>
 </template>
 
@@ -80,6 +70,7 @@ export default {
 }
 .recomand{
   color: red;
+  width:100%;
   
 }
 .road{
@@ -92,5 +83,8 @@ export default {
 }
 .my6 {
   margin-top:50px;
+}
+.photo-zone{
+  height: 500px;
 }
 </style>

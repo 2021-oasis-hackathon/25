@@ -3,7 +3,6 @@
      <nav>
         <w-divider color="amber" class="ma0"></w-divider>
         <w-flex justify-space-between class="indigo-light5--bg pa3 bot-imgs">
-
             <router-link to="/">
                 <img src="../../assets/bot-home.png" class="bot-img" alt="">
             </router-link>
@@ -23,8 +22,6 @@
             <router-link to="/myPage.png">
             <img src="../../assets/bot-myPage.png" class="bot-img">
             </router-link>
-
-
         </w-flex>
 
     </nav>
