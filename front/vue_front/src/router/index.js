@@ -14,7 +14,7 @@ const routes = [
   },
   {
     path: '/군산_익산',
-    name: '군산_익산',
+    name: '군산_익산', 
     component: () => import('../views/community_rigion/군산_익산.vue')
   },
   {

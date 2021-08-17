@@ -2,7 +2,7 @@
  <div >
      <nav>
         <w-divider color="amber" class="ma0"></w-divider>
-        <w-flex justify-space-between class="indigo-light5--bg pa3 bot-imgs">
+        <w-flex justify-center class="indigo-light5--bg pa0 bot-imgs">
             <router-link to="/">
                 <img src="../../assets/bot-home.png" class="bot-img" alt="">
             </router-link>
@@ -49,8 +49,8 @@ export default {
     padding-right: 30px;
 }
 .bot{
-    height:30px ;
-    width: 30px;
+    height:100% ;
+    width: 100%px;
 }
 
 </style>

@@ -61,10 +61,9 @@ export default {
   width:100%;
   position: fixed;
   bottom:0px;
-  margin-top:47px;
 }
 .content{
-  margin: 68px 0px 46px;
+  margin: 68px 0px 60px;
 }
 .bar{
   z-index: 10000;

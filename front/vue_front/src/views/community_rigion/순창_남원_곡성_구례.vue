@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         postServe() {
-            axios.get("locallhost:8000/posts/gwangju/1", {
+            axios.get(this.url+"posts/gwangju/1", {
         }).then(
             res =>{
             this.title = res.data.title;

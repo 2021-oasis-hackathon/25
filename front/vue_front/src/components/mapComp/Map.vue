@@ -5,10 +5,7 @@
   <button @click="hybrid" >기본+위성</button>
   <button @click="terrain" >지형</button>
   
-  
-  <h1>user_location : {{user_location}}</h1>
-  <h1>currentPos: {{currentPos}}</h1>
-  
+
 </template>
 
 
