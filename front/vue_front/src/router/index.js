@@ -67,8 +67,6 @@ const routes = [
     name: '진안_장수_무',
     component: () => import('../views/community_rigion/진안_장수_무주.vue')
   },
-
-
   {
     path: '/map',
     name:  'Map',

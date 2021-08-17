@@ -3,10 +3,8 @@
 <w-app>
   <!-- All your app content goes here. -->
       <TopBar class="top-bar bar"/> 
-      <router-view class="one-page"/>
+        <router-view class="one-page"/>
       <BottomBar class="bottom-bar bar" />
-
-  <!-- Also try to add a button! -->
 
 </w-app>
 
