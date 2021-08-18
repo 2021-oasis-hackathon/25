@@ -1,7 +1,7 @@
 export default {
   state: {
     currentPos:null,
-    markers: [
+    markers:[
 
     ],
   },

@@ -41,10 +41,6 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-1.main-img{
-  width: 100%;
-  z-index: -1;
-}
 .bottom-bar{
   width:100%;
   position: fixed;

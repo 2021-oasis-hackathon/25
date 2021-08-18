@@ -9,23 +9,15 @@
         </div>
 
         <div class="makers">
-        <w-button class="ma1 mr6" bg-color="secondary" round @click="createMarker">마커 추가 🔘</w-button>
-        <w-button class="ma1 mr6" bg-color="secondary" round @click="holdMarker">마커 저장 🔘</w-button>
+        <w-button class="ma1 mr6" bg-color="secondary" round @click="createMarker">마커 표시 🔘</w-button>
+        <w-button class="ma1 mr6" bg-color="secondary" round @click="saveMarker">마커 저장(그리기) 🔘</w-button>
         </div>
     </div>
-        
-
-    <w-flex wrap basis-zero :gap="3" class="listBoX">
-        <div class="grow">
-            <p class="title3 mb4">Default</p>
-            <w-list
-                v-model="selection1"
-                :items="listItems1"
-                checklist
-                color="green">
-            </w-list>
-        </div>
-    </w-flex>
+<w-table
+  :headers="table.headers"
+  :items="table.items"
+  style="margin-bottom:60px">
+</w-table>
     <div class = "bot"></div>
 </template>
 
@@ -39,26 +31,32 @@ var mapOptions={
     zoomControl: true,
     zoom: 15,
 }
-
-
+var point=null; 
+var polyline=null;
 export default {
     data(){
         return {
-            listItems1: [
-                { label: this.marker1 , value: 1 },
-                { label: this.marker2 , value: 2 },
-                { label: this.marker3 , value: 3 },
-                { label: this.marker4 , value: 4 },
-                { label: this.marker5 , value: 4 },
-            ],
+            pathPoint:null,
+            polyline:null,
+            markerId:0,
             map: null,
             user_marker: null,
-            point: null,
-            marker1 : 0,
+            point:null, 
+            marker1 : "2",
             marker2 : 0,
             marker3 : 0,
             marker4 : 0,
             marker5 : 0,
+            table: {
+                headers: [
+                    { label: 'ID', key: 'id' },
+                    { label: 'x', key: 'x' },
+                    { label: 'y', key: 'y' }
+                ],
+                items: [
+
+                ]
+            }
         }
     },
     computed: {
@@ -75,6 +73,12 @@ export default {
         initMap() {
             const mapBox=document.getElementById("map");
             this.map=new naver.maps.Map(mapBox,mapOptions);
+            this.polyline = new naver.maps.Polyline({
+                map: this.map,
+                path: [],
+                strokeColor: '#5347AA',
+                strokeWeight: 2
+            });
         }, 
         normal() {
             this.map.setMapTypeId(naver.maps.MapTypeId.NORMAL);
@@ -97,12 +101,9 @@ export default {
             this.user_marker=new naver.maps.Marker({
                 position: this.currentPos,
                 map: this.map,
-                title :"현재 위치!"
+                icon:'../assets/bot-map.png',
             });
-            this.point=new naver.maps.Marker({
-                position: this.currentPos,
-                map: this.map,
-            });
+            console.log(1)
         },
         onErrorGeo(){
             console.log("fail Geo");
@@ -118,16 +119,73 @@ export default {
             console.log(   this.markers[this.markers.length-1]);
         },
         createMarker(){
-            naver.maps.Event.addListener(this.map, 'click', function(e) {
-            this.marker1=new naver.maps.Marker({
-                position : e.latlng,
+            point=new naver.maps.Marker({
+                position: this.currentPos,
                 map: this.map,
-                img: {
-                    url: '../assets/마커1.png',
-                },
-            }) 
             });
-        }
+            console.log('asdf');
+
+            
+            
+            
+            polyline = new naver.maps.Polyline({
+                map: this.map,
+                path: [],
+                strokeColor: '#5347AA',
+                strokeWeight: 2
+            });
+
+
+
+            naver.maps.Event.addListener(this.map, 'click', function(e) {
+                point.setPosition(e.coord);
+
+
+
+                
+                console.log(e)
+                console.log("point")
+
+                console.log(point)
+                console.log("point")
+
+
+                 
+            });
+        },
+        saveMarker(){
+            var a=new naver.maps.Marker({
+                position: point.position,
+                map: this.map,
+                animation: naver.maps.Animation.DROP,
+                title: "asdfasdf", 
+            });
+            this.$store.commit('addMarker',a); 
+            this.marker1=a
+            console.log(a)
+            this.markerId+=1
+            this.table.items.push({id:this.markerId, x:a.position.x,y:a.position.y});
+            console.log(this.polyline)
+            var path = this.polyline.getPath();
+            console.log(path)
+            console.log(a.coord+"aa");
+
+
+
+
+            
+
+            var path11 = polyline.getPath();
+            path11.push(a.position);
+            new naver.maps.Marker({
+                map: this.map,
+                position: a.position
+            });
+
+
+
+
+        },
     },
     mounted() {
         if(window.naver){
@@ -136,15 +194,14 @@ export default {
         } else if(!(window.naver)){
             var naverMap=document.createElement("script");
             naverMap.src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId="+this.mapId;
+            console.log("head");
             document.head.appendChild(naverMap);
             console.log("asdf");
             naverMap.onload = () => {this.initMap();this.getCurrentGeo(); console.log("naver_Map_onload");}
         }
-        
-        naver.maps.Event.addListener(map, 'click', function(e) {
-            marker.setPosition(e.coord);
-        });
+        console.log(2);
     },
+    
     unmounted() {
         console.log("언마운티드");
     },
