@@ -53,6 +53,7 @@ export default {
             ],
             map: null,
             user_marker: null,
+            point: null,
             marker1 : 0,
             marker2 : 0,
             marker3 : 0,
@@ -98,6 +99,10 @@ export default {
                 map: this.map,
                 title :"현재 위치!"
             });
+            this.point=new naver.maps.Marker({
+                position: this.currentPos,
+                map: this.map,
+            });
         },
         onErrorGeo(){
             console.log("fail Geo");
@@ -136,7 +141,9 @@ export default {
             naverMap.onload = () => {this.initMap();this.getCurrentGeo(); console.log("naver_Map_onload");}
         }
         
-        
+        naver.maps.Event.addListener(map, 'click', function(e) {
+            marker.setPosition(e.coord);
+        });
     },
     unmounted() {
         console.log("언마운티드");
