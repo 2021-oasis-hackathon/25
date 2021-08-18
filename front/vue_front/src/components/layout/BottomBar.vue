@@ -1,29 +1,28 @@
 <template>
  <div >
      <nav>
-        <w-divider color="amber" class="ma0"></w-divider>
-        <w-flex justify-center class="indigo-light5--bg pa0 bot-imgs">
-            <router-link to="/">
+        <w-divider color="white" class="ma0"></w-divider>
+        <div class="bot-imgs">
+            <router-link to="/" class="img-margin">
                 <img src="../../assets/bot-home.png" class="bot-img" alt="">
             </router-link>
-            <w-divider class="mx6" vertical></w-divider>
-            <router-link to="/plan">
+
+            <router-link to="/plan" class="img-margin">
                 <img src="../../assets/bot-plan.png" class="bot-img">
             </router-link>
-            <w-divider class="mx6" vertical ></w-divider>
-            <router-link to="/map">
+
+            <router-link to="/map" class="img-margin">
                 <img src="../../assets/bot-map.png" class="bot-img">
             </router-link>
-            <w-divider class="mx6" vertical></w-divider>
-            <router-link to="/community">
+
+            <router-link to="/community" class="img-margin">
                 <img src="../../assets/bot-com.png" class="bot-img">
             </router-link>
-            <w-divider class="mx6" vertical ></w-divider>
-            <router-link to="/myPage">
+
+            <router-link to="/myPage" class="img-margin">
             <img src="../../assets/bot-myPage.png" class="bot-img">
             </router-link>
-        </w-flex>
-
+        </div>
     </nav>
  </div> 
 </template>
@@ -44,9 +43,8 @@ export default {
     width: 60px;
 }
 .bot-imgs{
-    padding:0px;
-    padding-left: 30px;
-    padding-right: 30px;
+    background: white;
+    
 }
 .bot{
     height:100% ;

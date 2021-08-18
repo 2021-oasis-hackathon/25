@@ -8,7 +8,6 @@
         inner-icon-left="wi-search"
         class="mb3">
     </w-input>
-
     <w-table
         :headers="table.headers"
         :items="table.items"
@@ -16,7 +15,6 @@
         @row-click="clickTitle" class="table">
     </w-table>
     <w-button class="ma1 mr6 post-btn transition-toggle" bg-color="secondary"  round @click="showCard = !showCard">작성하기</w-button>
-
 
 <w-overlay
   v-model="showCard"
@@ -33,6 +31,8 @@
 
 
 </w-overlay>
+   
+        <button @click="testtest"> test </button>
     </div> 
     
 </template>
@@ -77,7 +77,8 @@ export default {
     },
     methods: {
         submitPost(){
-            axios.post(this.url).then().postLoad()
+
+            //axios.post(this.url).then().postLoad()
         },
         postLoad() {
             axios.get( this.url+""
@@ -91,15 +92,14 @@ export default {
         postView(event) {
             console.log(event);
         },
-    },
-    created() {
-        axios.get( this.url+""
-        ).then(
-            res =>{
-                this.table.items=res.data
-        }).catch(err=>{
-            console.log(err)
-        });
+        testtest() {
+            axios.get("http://127.0.0.1:8000/community/1/").then(res=>{
+                console.log(res)
+            }).catch(res=>{
+                console.log(res);
+            }
+            )
+        }
     },
 }
 </script>

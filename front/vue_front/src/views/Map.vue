@@ -1,15 +1,19 @@
 <template>
     <div></div>
     <div id="map"> </div> 
-    <w-flex align-center class="wrapper">
-        <w-button class="ma1" color="primary" outline sm @click="normal">기본</w-button>
-        <w-button class="ma1" color="primary" outline sm @click="terrain">지형</w-button>
-        <div class="spacer"></div>
-        <w-button class="ma1 mr6" bg-color="secondary" round @click="show">마커 저장 🔘</w-button>
-        <w-button class="ma1 mr6" bg-color="secondary" round @click="holdMarker">마커 저장 🔘</w-button>
+    <div>
+        <div class="upBtn">
+            <w-button class="ma1" color="primary" outline sm @click="normal">기본</w-button>
+            <w-button class="ma1" color="primary" outline sm @click="terrain">지형</w-button>
+            <w-button class="ma1 mr6" bg-color="primary"  @click="getCurrentGeo">현재 위치 🔘</w-button>    
+        </div>
+
+        <div class="makers">
         <w-button class="ma1 mr6" bg-color="secondary" round @click="createMarker">마커 추가 🔘</w-button>
-        <w-button class="ma1 mr6" bg-color="secondary" round @click="getCurrentGeo">현재 위치 🔘</w-button>
-    </w-flex>
+        <w-button class="ma1 mr6" bg-color="secondary" round @click="holdMarker">마커 저장 🔘</w-button>
+        </div>
+    </div>
+        
 
     <w-flex wrap basis-zero :gap="3" class="listBoX">
         <div class="grow">
@@ -158,5 +162,12 @@ export default {
 }
 #map{
     margin-top : 10%;
+}
+.markers{
+    display: flex;
+    justify-content:end;
+}
+.upBtn{
+    justify-content: space-between;
 }
 </style>
