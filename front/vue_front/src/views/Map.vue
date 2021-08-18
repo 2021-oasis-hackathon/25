@@ -161,6 +161,12 @@ export default {
                 title: "asdfasdf", 
                 URL:"../assets/마커5.png"
             });
+            //var num = "1"
+            //var infowindow = new naver.maps.InfoWindow({
+           //     content: num, 
+            //});
+
+
             this.$store.commit('addMarker',a); 
             this.marker1=a
             console.log(a)
@@ -172,7 +178,8 @@ export default {
             console.log(a.coord+"aa");
 
 
-
+            //infowindow.open(this.map,a );
+            //console.log(infowindow)
 
             
 
