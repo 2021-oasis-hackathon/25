@@ -1,47 +1,69 @@
 <template>
         <div class="content">
-            <a href="http://127.0.0.1:8000/community/10/">
-                <img src="../assets/익산.png">
-            </a>
+
+                <img src="../assets/익산.png" class="img"
+                style="top: 116px;
+                    left: 150px;
+                    height: 52px;">
+
+                <img src="../assets/영광.png " class="img"
+                style="top: 245px;
+                    left: 109px;
+                    height: 86px;">
             
-            <a href="http://127.0.0.1:8000/community/11/">
-                <img src="../assets/전주.png" >
-            </a>
-            <a href="http://127.0.0.1:8000/community/12/">
-                <img src="../assets/무주.png" > 
-            </a>
-            <br>
-            <a href="http://127.0.0.1:8000/community/6/">
-                <img src="../assets/부안.png" alt="">
-            </a>
-            <a href to="http://127.0.0.1:8000/community/7/">
-                <img src="../assets/정읍.png" alt="">
-            </a>
-            <br>
-            <a href to="http://127.0.0.1:8000/community/2/">
-                <img src="../assets/무안.png" alt="">
-            </a>
-            <a href="http://127.0.0.1:8000/community/1/">
-                <img src="../assets/광주.png" alt="">
-            </a>
-            <a href to="http://127.0.0.1:8000/community/9/">
-                <img src="../assets/곡성.png" alt="">
-            </a>
-            <br>
-            <a href="http://127.0.0.1:8000/community/3/">
-                <img src="../assets/해남.png" alt="">
-            </a>
-            <a href ="http://127.0.0.1:8000/community/4/">
-                <img src="../assets/완도.png" alt="">
-            </a>
-            <a href="http://127.0.0.1:8000/community/8/">
-                <img src="../assets/순천6.png" alt="">
-            </a>
+                <img src="../assets/전주.png" class="img"
+                style="top: 129px;
+                    left: 177px;
+                    height: 92px;">
+     
+                <img src="../assets/무주.png" class="img"
+                style="top: 149px;
+                    left: 268px;
+                    height: 106px;"> 
+
+                <img src="../assets/부안.png" class="img"
+                style="top: 184px;
+                    left: 133px;
+                    height: 86px;">
+
+                <img src="../assets/정읍.png" class="img" 
+                style="top: 194px;
+                    left: 151px;
+                    height: 100px;">
+         
+                <img src="../assets/무안.png" class="img"
+                style="left: 54px;
+                        top: 305px;
+                        height: 116px;">
+      
+                <img src="../assets/광주.png"  class="img"
+                style="left:140px;top:250px" z-index="10">
+                <img src="../assets/곡성.png" class="img"
+                style="left: 194px;
+                        top: 232px;
+                        height: 98px;">
+           
+     
+                <img src="../assets/해남.png" class="img"
+                style="top: 368px;
+                        left: 32px;
+                        height: 108px;">
+           
+                <img src="../assets/완도.png" class="img"
+                tyle="top: 344px;
+                    left: 143px;
+                    height: 131px;">
+        
+                <img src="../assets/순천6.png" class="img"
+                style="top: 314px;
+                        left: 241px;
+                        height: 155px;">
+          
         </div>
 </template>
 
 <script>
-import axios from 'axios';
+
 
 export default {
     data() {
@@ -50,19 +72,6 @@ export default {
         }
     },
     methods: {
-
-        postTest(){
-            axios.post("https://reqres.in/api/register", {
-            "email": "eve.holt@reqres.in",
-            "password": "pistol"
-        }).then(
-            res =>{
-            this.post = res.data.token;
-            console.log(res)
-        }).catch(err=>{
-            console.log(err)
-        })
-        },
 
 
     },
@@ -76,8 +85,7 @@ export default {
 
 <style scoped>
 img{
-    height: 20%;
-    width: 20%;
+    height: 113px;
     transition: 1s;
     margin: 2%px;
 }
@@ -86,6 +94,15 @@ img:hover{
     transform: scale(1.3);
 }
 .content{
-    border:3px solid black;
+    margin: 100px;
+    border:3px solid yellow;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
 }
+.img{
+    
+    position:absolute;
+}
+ 
 </style>
