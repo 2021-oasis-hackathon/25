@@ -77,7 +77,7 @@ export default {
                 map: this.map,
                 path: [],
                 strokeColor: '#5347AA',
-                strokeWeight: 2
+                strokeWeight: 3
             });
         }, 
         normal() {
@@ -132,7 +132,7 @@ export default {
                 map: this.map,
                 path: [],
                 strokeColor: '#5347AA',
-                strokeWeight: 2
+                strokeWeight: 5,
             });
 
 
@@ -144,10 +144,10 @@ export default {
 
                 
                 console.log(e)
-                console.log("point")
+                console.log("pointb")
 
                 console.log(point)
-                console.log("point")
+                console.log("pointa")
 
 
                  
@@ -159,6 +159,7 @@ export default {
                 map: this.map,
                 animation: naver.maps.Animation.DROP,
                 title: "asdfasdf", 
+                URL:"../assets/마커5.png"
             });
             this.$store.commit('addMarker',a); 
             this.marker1=a
@@ -226,6 +227,7 @@ export default {
 }
 #map{
     margin-top : 10%;
+    height: 470px;
 }
 .markers{
     display: flex;
