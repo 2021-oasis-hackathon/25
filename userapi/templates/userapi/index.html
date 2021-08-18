@@ -1,11 +1,20 @@
-<navbar>
-    {% if user.is_authenticated %}
-    안녕하세요 {{user.nickname}}님!
-        <a href ="{% url 'account_logout'%}">로그아웃</a>
-    {% else %}
-        <a href="{% url 'account_login'%}">로그인</a>
-        <a href="{% url 'account_signup'%}">회원가입</a>
-    {% endif %}
+{% extends "userapi_base/base_with_navbar.html" %}
 
-</navbar>
+{% block content %}
+<a href="#">Home</a>
+<a href="#">map</a>
+<a href="{% url 'community' location=1 %}">광주나주화순담양</a>
+<a href="{% url 'community' location=2%}">영암목포무안</a>
+<a href="{% url 'community' location=3%}">진도해남강진</a>
+<a href="{% url 'community' location=4%}">장흥보성고흥완도</a>
+<a href="{% url 'community' location=5%}">영광함평</a>
+<a href="{% url 'community' location=6%}">부안고창</a>
+<a href="{% url 'community' location=7%}">정읍장성임실</a>
+<a href="{% url 'community' location=8%}">순천광양여수</a>
+<a href="{% url 'community' location=9%}">곡성구례남원순창</a>
+<a href="{% url 'community' location=10%}">군산익산</a>
+<a href="{% url 'community' location=11%}">김제전주완주</a>
+<a href="{% url 'community' location=12%}">진안무주장수</a>
+
+{% endblock content %}
 <h1>Frontend Home</h1>

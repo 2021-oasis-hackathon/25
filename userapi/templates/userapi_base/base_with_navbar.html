@@ -5,16 +5,17 @@
 {% block header %}
 <header class="site-header navbar">
   <div class="content max-width">
-    <a href="#">
+    <a href="{% url 'index'%}">
       <img class="logo" src="{% static 'userapi/assets/mlt-logo.png' %}" alt="userapi Logo">
     </a>
     <nav>
       <ul class="navbar">
         {% if user.is_authenticated %}
-          <li><a href="#">로그아웃</a></li>
+          <li>안녕하세요 {{user.nickname}}님!</li>
+          <li><a href="{% url 'account_logout'%}">로그아웃</a></li>
         {% else %}
-          <li><a href="#">로그인</a></li>
-          <li><a href="#">회원가입</a></li>
+          <li><a href="{% url 'account_login'%}">로그인</a></li>
+          <li><a href="{% url 'account_signup'%}">회원가입</a></li>
         {% endif %}
       </ul>
     </nav>
@@ -25,8 +26,8 @@
 {% block footer %}
 <footer class="site-footer">
   <div class="max-content-width content">
-    <div></div>
-    <div>userapi</div>
+    <div>제 2회 오아시스 해커톤 </div>
+    <div>스파크 팀 - MyLittleTrip </div>
   </div>
 </footer>
 {% endblock footer %}

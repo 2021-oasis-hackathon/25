@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     # ADMIN
@@ -29,3 +31,6 @@ urlpatterns = [
     path('', include('allauth.urls')),
     # django는 url 매칭을 위부터 아래로 패턴 검색한다. 
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, documnet_root=settings.MEDIA_ROOT)

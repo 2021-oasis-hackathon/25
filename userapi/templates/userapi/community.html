@@ -1,0 +1,80 @@
+{% extends "userapi_base/base_with_navbar.html" %}
+
+{% block content %}
+<main class="site-body">
+  <div class="main-header">
+    <div class="content">
+      <div class="fg"></div>
+      <h1>{{location.name}}</h1>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:50px;margin-bottom: 50px;">
+    <table class="table">
+        <thead class="thead-light">
+        <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">제목</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for p in postlist %}
+        <tr class="text-center">
+            <th scope="row">
+                <span>{{ p.id }}</span>
+            </th>
+            <td>
+                <a href="#">
+                    <span>{{ p.title }}</span>
+                </a>
+            </td>
+            <td>
+                <span>{{ p.author.nickname }}</span>
+            </td>
+            <td>
+                <span>{{ p.dt_created| date:"Y-m-d h:i" }}</span>
+            </td>
+        </tr>
+        {% empty %}
+          <p class="empty">아직 게시물이 없어요 :(</p>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-auto mr-auto"></div>
+        <div class="col-auto">
+            <a class="btn btn-primary" href="#" role="button">글쓰기</a>
+        </div>
+    </div>
+</div>
+
+      {% if is_paginated %}
+        <footer>
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li><a href="?page=1">처음</a></li>
+              <li><a href="?page={{ page_obj.previous_page_number }}">이전</a></li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <li class="current">{{ num }}</li>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li><a href="?page={{ num }}">{{ num }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}">다음</a></li>
+              <li><a href="?page={{ page_obj.paginator.num_pages }}">마지막</a></li>
+            {% endif %}
+          </ul>
+        </footer>
+      {% endif %}
+      
+    </article>
+  </div>
+</main>
+{% endblock content %}
